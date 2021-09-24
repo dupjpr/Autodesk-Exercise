@@ -4,10 +4,16 @@ import { getDataAction } from '../../redux/axiosActions'
 import './home.style.scss';
 import Header from "../UI Library/header/Header";
 import Footer from "../UI Library/footer/Footer";
+import TabsButtons from "./tabsSectionButtons/TabsButtons";
+import TabOne from "./displayTabOne/TabOne";
+import TabTwo from "./displayTabTwo/TabTwo";
 
 const Home = () => {
+  
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
+
+  const { statusTabs: { tabOne, tabTwo } } = storeData;
 
   useEffect(() => {
     dispatch(getDataAction());
@@ -16,11 +22,15 @@ const Home = () => {
 
   console.log(storeData);
   return (
-    <section className='sectionHome-container'>
+    <>
       <Header />
-      this is the body of the app
-      <Footer/>
-    </section>
+      <main className='sectionHome-container'>
+        <TabsButtons />
+        {tabOne && <TabOne />}
+        {tabTwo && <TabTwo />}
+      </main>
+      <Footer />
+    </>
   );
 }
 

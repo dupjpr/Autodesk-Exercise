@@ -1,7 +1,8 @@
 import {
   LOADING,
   GET_PROFILE,
-  ERROR
+  ERROR,
+  TAB_SELECT
 } from '../../utilities/constants';
 
 const rootReducer = (state, action) => {
@@ -15,12 +16,18 @@ const rootReducer = (state, action) => {
     case GET_PROFILE:
       return {
         ...state,
-        data: action.payload
+        dataRequest: action.payload,
+        dataDisplay: action.payload.data
       }
     case ERROR:
       return {
         ...state,
         error: action.payload
+      }
+    case TAB_SELECT:
+      return {
+        ...state,
+        statusTabs: action.payload
       }
     default:
       return state

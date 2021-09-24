@@ -1,10 +1,12 @@
 const LOADING = 'LOADING';
 const GET_PROFILE = 'GET_PROFILE';
 const ERROR = 'ERROR';
+const TAB_SELECT = 'TAB_SELECT';
 
 export { 
   LOADING, 
   GET_PROFILE, 
-  ERROR
+  ERROR,
+  TAB_SELECT
  };
  

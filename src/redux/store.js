@@ -3,8 +3,11 @@ import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 
 const initialState = {
-  data: '',
+  dataRequest: '',
+  dataDisplay: '',
   loading: false,
+  statusTabs: { tabOne: true, tabTwo: false },
+  searchInput: ' '
 }
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));

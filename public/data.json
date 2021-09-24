@@ -1,0 +1,82 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "name": "juanita fajardo ardila",
+      "city": "bogota",
+      "age": 33,
+      "rol": "designer",
+      "status": "active"
+    },
+    {
+      "name": "kelly rueda hernandez",
+      "city": "barranquilla",
+      "age": 37,
+      "rol": "teacher",
+      "status": "inactive"
+    },
+    {
+      "name": "juan pablo rodriguez",
+      "city": "bogota",
+      "age": 35,
+      "rol": "developer",
+      "status": "active"
+    },
+    {
+      "name": "liliana guevara melo",
+      "city": "pasto",
+      "age": 40,
+      "rol": "administrator",
+      "status": "active"
+    },
+    {
+      "name": "estefania rodriguez",
+      "city": "pasto",
+      "age": 30,
+      "rol": "teacher",
+      "status": "active"
+    },
+    {
+      "name": "camilo bernal guevara",
+      "city": "cali",
+      "age": 35,
+      "rol": "developer",
+      "status": "active"
+    },
+    {
+      "name": "maria camila viteri",
+      "city": "cali",
+      "age": 32,
+      "rol": "administrator",
+      "status": "inactive"
+    },
+    {
+      "name": "monica chamorro",
+      "city": "bogota",
+      "age": 35,
+      "rol": "teacher",
+      "status": "active"
+    },
+    {
+      "name": "raul alejandro delgado",
+      "city": "pasto",
+      "age": 33,
+      "rol": "investigator",
+      "status": "active"
+    },
+    {
+      "name": "juan pablo belalcazar",
+      "city": "bogota",
+      "age": 35,
+      "rol": "accountant",
+      "status": "active"
+    },
+    {
+      "name": "carmen luz melo",
+      "city": "pasto",
+      "age": 60,
+      "rol": "teacher",
+      "status": "inactive"
+    }
+  ]
+}
