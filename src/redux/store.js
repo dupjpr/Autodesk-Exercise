@@ -3,6 +3,7 @@ import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 
 const initialState = {
+  data: '',
   loading: false,
 }
 

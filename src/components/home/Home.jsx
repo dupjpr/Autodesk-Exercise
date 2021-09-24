@@ -14,6 +14,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(storeData);
   return (
     <section className='sectionHome-container'>
       <Header />
@@ -24,3 +25,4 @@ const Home = () => {
 }
 
 export default Home;
+

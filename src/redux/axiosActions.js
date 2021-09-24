@@ -5,7 +5,6 @@ import {
 } from '../utilities/constants';
 import { _http } from "../utilities/httpRequest";
 
-const demoUrl = 'https://pokeapi.co/api/v2/ability';
 
 const actions = {
   loading: (boolean = false) => ({
@@ -25,6 +24,11 @@ const actions = {
 const { loading, getData, error } = actions;
 
 const getDataAction = () => {
+
+  const baseUrl = 'https://autodesk.free.beeceptor.com';
+  const apiPath = '/users';
+  const demoUrl = `${baseUrl}${apiPath}`;
+
   return dispatch => {
     dispatch(loading(true));
     _http.GET(demoUrl)
