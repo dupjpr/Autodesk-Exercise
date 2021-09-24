@@ -1,24 +1,60 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { inputSearch, submitInput, displayTable } from '../../homeActions';
 
 const Utilities = () => {
 
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const { searchInput } = storeData;
+  const { dataRequest: { data }, searchInput, submitForm } = storeData;
+
+  // section to handle the form
 
   function handleChange(e) {
-
     const target = e.target;
-
-    console.log(target.value);
+    dispatch(inputSearch(target.value.trim()));
   }
-
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('sending');
+    dispatch(submitInput(searchInput));
   }
+
+  // section to filter the data to display
+
+  useEffect(() => {
+
+    if (submitForm === '') {
+      dispatch(displayTable(data));
+    }
+
+    if (submitForm !== '') {
+
+      const newData1 = data.filter((item) => item.city === submitForm);
+      if (newData1.length === 0) {
+        const newData2 = data.filter((item) => item.rol === submitForm);
+        if (newData2.length === 0) {
+          const newData3 = data.filter((item) => item.status === submitForm);
+          if (newData3.length === 0) {
+            console.log('not information');
+          } else {
+            dispatch(displayTable(newData3));
+          }
+        } else {
+          dispatch(displayTable(newData2));
+        }
+      } else {
+        dispatch(displayTable(newData1));
+      }
+
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitForm]);
+
+
+
 
   return (
     <div>

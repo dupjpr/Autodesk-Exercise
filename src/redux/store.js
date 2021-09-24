@@ -7,7 +7,8 @@ const initialState = {
   dataDisplay: '',
   loading: false,
   statusTabs: { tabOne: true, tabTwo: false },
-  searchInput: ' '
+  searchInput: '',
+  submitForm: '',
 }
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));

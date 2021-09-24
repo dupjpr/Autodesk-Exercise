@@ -2,8 +2,12 @@ import {
   LOADING,
   GET_PROFILE,
   ERROR,
-  TAB_SELECT
+  TAB_SELECT,
+  INPUT_SEARCH,
+  SUBMIT_FORM,
+  TABLE_INFO
 } from '../../utilities/constants';
+import store from '../store';
 
 const rootReducer = (state, action) => {
 
@@ -28,6 +32,21 @@ const rootReducer = (state, action) => {
       return {
         ...state,
         statusTabs: action.payload
+      }
+    case INPUT_SEARCH:
+      return {
+        ...state,
+        searchInput: action.payload
+      }
+    case  SUBMIT_FORM:
+      return {
+        ...state,
+        submitForm: action.payload
+      }
+    case  TABLE_INFO:
+      return {
+        ...state,
+        dataDisplay: action.payload
       }
     default:
       return state
