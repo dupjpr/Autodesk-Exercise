@@ -13,7 +13,7 @@
       "city": "barranquilla",
       "age": 37,
       "rol": "teacher",
-      "status": "inactive"
+      "status": "retired"
     },
     {
       "name": "juan pablo rodriguez",
@@ -48,7 +48,7 @@
       "city": "cali",
       "age": 32,
       "rol": "administrator",
-      "status": "inactive"
+      "status": "retired"
     },
     {
       "name": "monica chamorro",
@@ -76,7 +76,7 @@
       "city": "pasto",
       "age": 60,
       "rol": "teacher",
-      "status": "inactive"
+      "status": "retired"
     }
   ]
 }

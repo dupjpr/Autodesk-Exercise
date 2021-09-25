@@ -25,52 +25,49 @@ const Utilities = () => {
 
   useEffect(() => {
 
-    if (submitForm === '') {
+    if (searchInput === '') {
       dispatch(displayTable(data));
     }
 
-    if (submitForm !== '') {
+    if (searchInput.length > 2) {
 
-      const newData1 = data.filter((item) => item.city === submitForm);
-      if (newData1.length === 0) {
-        const newData2 = data.filter((item) => item.rol === submitForm);
-        if (newData2.length === 0) {
-          const newData3 = data.filter((item) => item.status === submitForm);
-          if (newData3.length === 0) {
-            console.log('not information');
-          } else {
-            dispatch(displayTable(newData3));
-          }
-        } else {
-          dispatch(displayTable(newData2));
+      let regex = new RegExp(searchInput, 'gi')
+
+      const newData = data.filter((item) => {
+
+        const rest = item.name.match(regex)
+          || item.city.match(regex)
+          || item.rol.match(regex)
+          || item.status.match(regex);
+
+        if (rest) {
+          return item
         }
-      } else {
-        dispatch(displayTable(newData1));
-      }
+
+      })
+
+      dispatch(displayTable(newData));
 
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [submitForm]);
-
-
-
+  }, [searchInput]);
 
   return (
     <div>
       <button> + New User</button>
       <button> Export</button>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Search by city, status, position"
-          value={searchInput}
-          name='inputOne'
-          onChange={(e) => handleChange(e)}
-        />
-        <input type="submit" value="Search" />
 
-      </form>
+      <input
+        type="text"
+        placeholder="Search by city, status, position"
+        value={searchInput}
+        name='inputOne'
+        onChange={(e) => handleChange(e)}
+      />
+      <button>Filter</button>
+
+
     </div>
   );
 }
