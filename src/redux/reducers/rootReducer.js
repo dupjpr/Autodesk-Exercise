@@ -5,7 +5,10 @@ import {
   TAB_SELECT,
   INPUT_SEARCH,
   SUBMIT_FORM,
-  TABLE_INFO
+  TABLE_INFO,
+  MODAL_STATUS,
+  MODAL_INPUT,
+  MODAL_SUBMIT 
 } from '../../utilities/constants';
 import store from '../store';
 
@@ -47,6 +50,21 @@ const rootReducer = (state, action) => {
       return {
         ...state,
         dataDisplay: action.payload
+      }
+    case  MODAL_STATUS:
+      return {
+        ...state,
+        modalState: action.payload
+      }
+    case   MODAL_INPUT:
+      return {
+        ...state,
+        modalInputs: {...state.modalInputs, ...action.payload}
+      }
+    case   MODAL_SUBMIT:
+      return {
+        ...state,
+        modalSubmit: action.payload
       }
     default:
       return state

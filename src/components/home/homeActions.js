@@ -1,8 +1,10 @@
 import {
   TAB_SELECT,
   INPUT_SEARCH,
-  SUBMIT_FORM, 
-  TABLE_INFO
+  TABLE_INFO,
+  MODAL_STATUS,
+  MODAL_INPUT, 
+  MODAL_SUBMIT 
 } from '../../utilities/constants';
 
 const actions = {
@@ -14,17 +16,32 @@ const actions = {
     type: INPUT_SEARCH,
     payload: data
   }),
-  submitForm: (data) => ({
-    type: SUBMIT_FORM,
-    payload: data
-  }),
   table: (data) => ({
     type: TABLE_INFO,
+    payload: data
+  }),
+  modal: (boolean) => ({
+    type: MODAL_STATUS,
+    payload: boolean
+  }),
+  modalInputUser: (data) => ({
+    type: MODAL_INPUT,
+    payload: data
+  }),
+  modalSubmitInfo: (data) => ({
+    type: MODAL_SUBMIT,
     payload: data
   })
 }
 
-const { tabSelect, inputText, submitForm, table } = actions;
+const {
+  tabSelect,
+  inputText,
+  table,
+  modal,
+  modalInputUser,
+  modalSubmitInfo
+} = actions;
 
 const tabActions = (selectTab) => {
   return dispatch => {
@@ -38,15 +55,35 @@ const inputSearch = (textInput) => {
   }
 }
 
-const submitInput = (submitData) => {
-  return dispatch => {
-    dispatch(submitForm(submitData))
-  }
-}
-
 const displayTable = (dataTable) => {
   return dispatch => {
     dispatch(table(dataTable))
   }
 }
-export { tabActions, inputSearch, submitInput, displayTable };
+
+const modalStatus = (boolean) => {
+  return dispatch => {
+    dispatch(modal(boolean))
+  }
+}
+
+const modalInput = (inputUser) => {
+  return dispatch => {
+    dispatch(modalInputUser(inputUser))
+  }
+}
+
+const modalSubmit = (data) => {
+  return dispatch => {
+    dispatch(modalSubmitInfo(data))
+  }
+}
+
+export {
+  tabActions,
+  inputSearch,
+  displayTable,
+  modalStatus,
+  modalInput,
+  modalSubmit
+};

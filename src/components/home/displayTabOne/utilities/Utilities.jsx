@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputSearch, submitInput, displayTable } from '../../homeActions';
+import { inputSearch, displayTable, modalStatus } from '../../homeActions';
 
 const Utilities = () => {
 
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const { dataRequest: { data }, searchInput, submitForm } = storeData;
+  const { dataRequest: { data }, searchInput, modalState } = storeData;
 
   // section to handle the form
 
@@ -16,9 +16,10 @@ const Utilities = () => {
     dispatch(inputSearch(target.value.trim()));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    dispatch(submitInput(searchInput));
+  // section to handle the modal
+
+  function handleClick() {
+    dispatch(modalStatus(!modalState));
   }
 
   // section to filter the data to display
@@ -55,7 +56,11 @@ const Utilities = () => {
 
   return (
     <div>
-      <button> + New User</button>
+      <button
+        onClick={() => handleClick()}
+      >
+        + New User
+      </button>
       <button> Export</button>
 
       <input

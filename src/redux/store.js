@@ -9,6 +9,15 @@ const initialState = {
   statusTabs: { tabOne: true, tabTwo: false },
   searchInput: '',
   submitForm: '',
+  modalState: false,
+  modalInputs:{
+    inputOne: '',
+    inputTwo: '',
+    inputThree: '',
+    inputFour: 'Select an option',
+    inputFive: 'Select an option',
+  },
+  modalSubmit:''
 }
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));

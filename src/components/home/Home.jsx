@@ -7,13 +7,14 @@ import Footer from "../UI Library/footer/Footer";
 import TabsButtons from "./tabsSectionButtons/TabsButtons";
 import TabOne from "./displayTabOne/TabOne";
 import TabTwo from "./displayTabTwo/TabTwo";
+import Modal from "./modal/Modal";
 
 const Home = () => {
   
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const { statusTabs: { tabOne, tabTwo } } = storeData;
+  const { statusTabs: { tabOne, tabTwo }, modalState } = storeData;
 
   useEffect(() => {
     dispatch(getDataAction());
@@ -28,6 +29,7 @@ const Home = () => {
         <TabsButtons />
         {tabOne && <TabOne />}
         {tabTwo && <TabTwo />}
+        {modalState && <Modal/>} 
       </main>
       <Footer />
     </>
