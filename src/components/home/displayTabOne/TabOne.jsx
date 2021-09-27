@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import Utilities from "./utilities/Utilities";
 import { v4 as uuidv4 } from 'uuid';
-import Loading from "../../UI Library/loading/Loading";
 
 const TabOne = () => {
 
@@ -12,7 +11,9 @@ const TabOne = () => {
   return (
     <div>
       <Utilities />
-      {loading && <Loading />}
+      {loading && <div>
+        Loading ....
+      </div>}
       {dataDisplay && <table>
         <thead>
           <tr>
