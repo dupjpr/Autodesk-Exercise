@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 const initialState = {
   dataRequest: '',
   dataDisplay: '',
-  loading: false,
+  loading: true,
   statusTabs: { tabOne: true, tabTwo: false },
   searchInput: '',
   submitForm: '',

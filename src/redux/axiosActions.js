@@ -1,7 +1,8 @@
 import {
   LOADING,
   GET_PROFILE,
-  ERROR
+  ERROR,
+  POST_DATA
 } from '../utilities/constants';
 import { _http } from "../utilities/httpRequest";
 
@@ -18,22 +19,26 @@ const actions = {
   error: (data) => ({
     type: ERROR,
     payload: data
+  }),
+  postInfo: (data) => ({
+    type: POST_DATA,
+    payload: data
   })
 }
 
-const { loading, getData, error } = actions;
+const { loading, getData, error, postInfo } = actions;
 
 const getDataAction = () => {
 
-  // const baseUrl = 'https://autodesk.free.beeceptor.com';
-  // const apiPath = '/users';
-  // const url = `${baseUrl}${apiPath}`;
+  const baseUrl = 'https://autodesk.free.beeceptor.com';
+  const apiPath = '/users';
+  const url = `${baseUrl}${apiPath}`;
 
-  const localPath = 'data.json';
+  // const localPath = 'data.json';
 
   return dispatch => {
     dispatch(loading(true));
-    _http.GET(localPath)
+    _http.GET(url)
       .then((res) => {
         dispatch(getData(res))
         dispatch(loading(false));
@@ -42,4 +47,21 @@ const getDataAction = () => {
   }
 }
 
-export { getDataAction };
+const postDataAction = (info) => {
+
+  const baseUrl = 'https://autodesk.free.beeceptor.com';
+  const apiPath = '/users';
+  const url = `${baseUrl}${apiPath}`;
+
+  // const localPath = 'data.json';
+
+  return dispatch => {
+    _http.POST(url, info)
+      .then((res) => {
+        dispatch(postInfo(res))
+      })
+      .catch((e) => dispatch(error(e)));
+  }
+}
+
+export { getDataAction, postDataAction };

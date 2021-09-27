@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { modalInput, modalSubmit } from '../homeActions';
+import { postDataAction } from '../../../redux/axiosActions'
 
 
 const Modal = () => {
@@ -26,6 +27,7 @@ const Modal = () => {
 
     e.preventDefault();
     dispatch(modalSubmit(modalInputs));
+    dispatch(postDataAction(modalInputs));
     dispatch(modalInput({
       inputOne: '',
       inputTwo: '',
