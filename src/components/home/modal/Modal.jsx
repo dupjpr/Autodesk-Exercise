@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { modalInput, modalSubmit } from '../homeActions';
+import { modalInput, modalSubmit, modalStatus } from '../homeActions';
 import { postDataAction } from '../../../redux/axiosActions'
 
 
@@ -14,7 +14,10 @@ const Modal = () => {
     inputThree,
     inputFour,
     inputFive
-  }, modalInputs } = storeData;
+  },
+    modalInputs,
+    modalState
+  } = storeData;
 
   function handleChange(e) {
     const target = e.target;
@@ -38,11 +41,22 @@ const Modal = () => {
 
   }
 
+  function handleClickClose() {
+    console.log('cerrando....');
+    dispatch(modalStatus(!modalState));
+
+
+  }
+
   return (
     <div>
       <div>
         <h2>Create a new user</h2>
-        <button>X</button>
+        <button
+          onClick={() => handleClickClose()}
+        >
+          X
+        </button>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>

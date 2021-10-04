@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import Utilities from "./utilities/Utilities";
 import { v4 as uuidv4 } from 'uuid';
 
+import './tabOne.style.scss'
+
 const TabOne = () => {
 
   const storeData = useSelector(state => state);
@@ -9,7 +11,7 @@ const TabOne = () => {
   const { dataDisplay, loading } = storeData;
 
   return (
-    <div>
+    <div className='container-tabOne'>
       <Utilities />
       {loading && <div>
         Loading ....

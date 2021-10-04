@@ -59,9 +59,13 @@ const Utilities = () => {
       <button
         onClick={() => handleClick()}
       >
-        + New User
+        <i className="fas fa-plus"></i> New User
       </button>
-      <button> Export</button>
+      <button>
+        <i className="fas fa-file-export"></i>
+        Export
+        <i className="fas fa-sort-down"></i>
+      </button>
 
       <input
         type="text"
@@ -70,7 +74,7 @@ const Utilities = () => {
         name='inputOne'
         onChange={(e) => handleChange(e)}
       />
-      <button>Filter</button>
+      <button><i className="fas fa-filter"></i></button>
 
 
     </div>

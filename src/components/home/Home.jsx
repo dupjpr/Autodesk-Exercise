@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { getDataAction } from '../../redux/axiosActions'
-import './home.style.scss';
 import Header from "../UI Library/header/Header";
 import Footer from "../UI Library/footer/Footer";
 import TabsButtons from "./tabsSectionButtons/TabsButtons";
@@ -9,8 +8,10 @@ import TabOne from "./displayTabOne/TabOne";
 import TabTwo from "./displayTabTwo/TabTwo";
 import Modal from "./modal/Modal";
 
+import './home.style.scss';
+
 const Home = () => {
-  
+
   const storeData = useSelector(state => state);
   const dispatch = useDispatch();
 
@@ -24,12 +25,12 @@ const Home = () => {
   console.log(storeData);
   return (
     <>
-      <Header />
+      <Header number={5}/>
       <main className='sectionHome-container'>
         <TabsButtons />
         {tabOne && <TabOne />}
         {tabTwo && <TabTwo />}
-        {modalState && <Modal/>} 
+        {modalState && <Modal />}
       </main>
       <Footer />
     </>

@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { tabActions } from '../homeActions';
 
+import './tabsButtons.style.scss'
+
 const TabsButtons = () => {
 
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const TabsButtons = () => {
   }
 
   return (
-    <div>
+    <div className='container-tabsButtons'>
       <button
         onClick={(e) => handleClick(e)}
         name='optionOne'

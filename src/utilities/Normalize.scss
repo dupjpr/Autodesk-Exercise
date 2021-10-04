@@ -24,6 +24,11 @@ body {
   margin: 0;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /**
    * Render the `main` element consistently in IE.
    */
@@ -39,7 +44,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0 0;
 }
 
 /* Grouping content

@@ -1,7 +1,12 @@
-const Header = () => {
+import './header.style.scss';
+
+const Header = ({ number }) => {
   return (
-    <header>
-      <h1>this is the header of the Autodesk App</h1>
+    <header
+      className='container-header'
+      data-testid="header-test"
+    >
+      <h1>Autodesk App {5}</h1>
 
     </header>
   );

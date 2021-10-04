@@ -1,7 +1,9 @@
+import './footer.style.scss';
+
 const Footer = () => {
   return ( 
-    <footer>
-      this is the footer of the app
+    <footer className='container-footer'>
+      Code by Juan Pablo from Globant
     </footer>
    );
 }
